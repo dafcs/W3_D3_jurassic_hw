@@ -90,9 +90,20 @@ describe('Park', function() {
     park.addDino(stego)
     park.addDino(rapto)
     park.addDino(raptok)    
-    actual = (park.ticket_price * park.calculateVisitors())*365
-    assert.strictEqual(actual,3436475)
+    actual = park.calculateVisitors()*365
+    assert.strictEqual(actual,98185)
     });
 
-  it('should be able to calculate total revenue for one year');
-  })
+  it('should be able to calculate total revenue for one year',function() {
+  trex = new Dinosaur('t-rex', 'carnivore', 50)
+  stego = new Dinosaur('stegossaurus', 'herbivore',40)
+  rapto = new Dinosaur('raptor', 'carnivore',90)
+  raptok = new Dinosaur('raptor', 'carnivore',89)
+  park.addDino(trex)
+  park.addDino(stego)
+  park.addDino(rapto)
+  park.addDino(raptok)    
+  actual = (park.ticket_price * park.calculateVisitors())*365
+  assert.strictEqual(actual,3436475)  
+  });
+});
